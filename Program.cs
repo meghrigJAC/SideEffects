@@ -14,13 +14,14 @@
 
         static List<int> GetSmallests(List<int> list, int count)
         {
+            List<int> listCopy = new List<int>(list);
             List<int> smallests = new List<int>();
 
             while (smallests.Count < count)
             {
-                int min = GetSmallestElement(list);
+                int min = GetSmallestElement(listCopy);
                 smallests.Add(min);
-                list.Remove(min);
+                listCopy.Remove(min);
             }
 
             return smallests;
@@ -33,7 +34,7 @@
             var min = list[0];
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i] > min)
+                if (list[i]< min)
                     min = list[i];
             }
             return min;
